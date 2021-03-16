@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
-import { H1, P } from '../assets/styles/GlobalStyles';
+import { P } from '../assets/styles/GlobalStyles';
 
 import { IoMoonSharp } from 'react-icons/io5';
 
@@ -9,6 +11,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   height: 80px;
   width: 100%;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.08);
 `;
 
 export const HeaderTitleContainer = styled.div`
@@ -18,10 +21,11 @@ export const HeaderTitleContainer = styled.div`
   transform: scaleX(1.04);
 `;
 
-export const HeaderTitle = styled(H1)`
+export const HeaderAnchor = styled(Link)`
   font-size: 1.5em;
   font-weight: 700;
   transform: scaleY(0.95);
+  text-decoration: none;
 `;
 
 export const DarkModeButton = styled.button`
@@ -42,7 +46,9 @@ function Header({ themeToggler }) {
   return (
     <HeaderContainer className="header">
       <HeaderTitleContainer>
-        <HeaderTitle>Where in the world?</HeaderTitle>
+        <HeaderAnchor className="anchor" to="/">
+          Where in the world?
+        </HeaderAnchor>
       </HeaderTitleContainer>
       <DarkModeButton onClick={themeToggler}>
         <IoMoonSharp className="icon" />

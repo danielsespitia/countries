@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
 
 import Header from './parts/Header';
 import Home from './pages/Home';
-import CountryInfo from './pages/CountryInfo';
+import Detail from './pages/Detail';
 
 import { lightTheme, darkTheme, GlobalStyles } from './themes.js';
 
@@ -26,9 +27,13 @@ function App() {
           flexDirection: 'column',
         }}
       >
-        <Header themeToggler={themeToggler} />
-        <Home />
-        <CountryInfo />
+        <Router>
+          <Header themeToggler={themeToggler} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Detail exact path="/detail" component={Detail} />
+          </Switch>
+        </Router>
       </div>
     </ThemeProvider>
   );

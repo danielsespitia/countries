@@ -18,7 +18,7 @@ export const SelectRegion = styled.select`
   font-size: 0.84em;
   border: none;
   border-radius: 6px;
-  /* box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.02); */
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.08);
   outline: none;
   & > select {
   }

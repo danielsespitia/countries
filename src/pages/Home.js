@@ -32,6 +32,7 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [regionSelect, setRegionSelect] = useState('All');
   const [countriesArray, setCountriesArray] = useState([]);
+  const [countryName, setCountryName] = useState("");
 
   useEffect(() => {
     async function load() {
@@ -77,6 +78,10 @@ function Home() {
       return val;
     }
   };
+
+  const handleClick = () => {
+
+  }
 
   return (
     <PageContainer>

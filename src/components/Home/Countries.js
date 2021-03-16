@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { H2, P } from '../../assets/styles/GlobalStyles';
 
 import styled from 'styled-components';
@@ -20,16 +22,18 @@ export const CountryCard = styled.div`
   width: 263px;
   margin-bottom: 72px;
   border-radius: 8px;
+  text-decoration: none;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.08);
 `;
 
-export const FlagContainer = styled.div`
+export const FlagContainer = styled(Link)`
   display: inherit;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  background-color: lightblue;
   height: 220px;
+  height: 50%;
   width: 100%;
+  cursor: pointer;
 `;
 
 export const Flag = styled.img`
@@ -37,14 +41,19 @@ export const Flag = styled.img`
   border-top-right-radius: 8px;
   height: 100%;
   width: 100%;
-  object-fit: none;
+  object-fit: cover;
+`;
+
+export const BottomCardContainer = styled.div`
+  display: inherit;
+  height: 50%;
+  width: 100%;
 `;
 
 export const InfoContainer = styled.div`
   display: inherit;
   flex-direction: column;
-  height: 50%;
-  width: 100%;
+  width: 80%;
   margin-top: 27px;
   margin-left: 24px;
 `;
@@ -93,27 +102,29 @@ function Countries({ countriesArray, searchTermFilter, regionFilter }) {
           .map(({ alpha2Code, name, population, region, capital, flag }) => {
             return (
               <CountryCard key={alpha2Code} className="card">
-                <FlagContainer>
-                  <Flag src={flag} alt="flag" />
+                <FlagContainer to="/detail">
+                  <Flag className="flag" src={flag} alt="Country Flag" />
                 </FlagContainer>
-                <InfoContainer>
-                  <CardTitleContainer>
-                    <LimitSpan>
-                      <CardTitle>{name}</CardTitle>
-                    </LimitSpan>
-                  </CardTitleContainer>
-                  <DataContainer>
-                    <DataText>
-                      <strong>Population:</strong> {population}
-                    </DataText>
-                    <DataText>
-                      <strong>Region:</strong> {region}
-                    </DataText>
-                    <DataText>
-                      <strong>Capital:</strong> {capital}
-                    </DataText>
-                  </DataContainer>
-                </InfoContainer>
+                <BottomCardContainer>
+                  <InfoContainer>
+                    <CardTitleContainer>
+                      <LimitSpan>
+                        <CardTitle>{name}</CardTitle>
+                      </LimitSpan>
+                    </CardTitleContainer>
+                    <DataContainer>
+                      <DataText>
+                        <strong>Population:</strong> {population}
+                      </DataText>
+                      <DataText>
+                        <strong>Region:</strong> {region}
+                      </DataText>
+                      <DataText>
+                        <strong>Capital:</strong> {capital}
+                      </DataText>
+                    </DataContainer>
+                  </InfoContainer>
+                </BottomCardContainer>
               </CountryCard>
             );
           })}

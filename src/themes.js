@@ -26,6 +26,10 @@ export const GlobalStyles = createGlobalStyle`
       color: ${(props) => props.theme.fontColor}};
     }
 
+    .anchor, .flag {
+      color: ${(props) => props.theme.fontColor}};
+    }
+
     .search-bar, .card, .icon {
       background-color: ${(props) => props.theme.auxColor};
     }
