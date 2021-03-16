@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import searchIcon from '../../assets/images/search-icon.webp';
+import searchIcon from '../../assets/images/search-icon.png';
 
 export const SearchContainer = styled.div`
   display: inherit;
@@ -13,7 +13,7 @@ export const SearchContainer = styled.div`
 export const SearchBarInput = styled.input`
   height: 100%;
   width: 100%;
-  background: url(${searchIcon});
+  background: url('https://www.pngfind.com/pngs/m/54-545056_icon-search-white-png-johns-hopkins-logo-white.png');
   background-color: #2b3743;
   background-repeat: no-repeat;
   background-size: 23px 23px;
@@ -35,6 +35,7 @@ function SearchBar({ handleChange }) {
   return (
     <SearchContainer>
       <SearchBarInput
+        id="searchTerm"
         name="searchTerm"
         type="input"
         placeholder="Search for a country..."

@@ -1,4 +1,3 @@
-import { singleCountry } from '../../dataShape';
 import { H2, P } from '../../assets/styles/GlobalStyles';
 
 import styled from 'styled-components';
@@ -22,6 +21,7 @@ export const CountryCard = styled.div`
   margin-bottom: 72px;
   background-color: #2b3743;
   border-radius: 8px;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.18);
 `;
 
 export const FlagContainer = styled.div`
@@ -82,14 +82,16 @@ export const DataText = styled(P)`
   margin-bottom: 5px;
 `;
 
-function Countries({ countriesArray }) {
+function Countries({ countriesArray, searchTermFilter, regionFilter }) {
   return (
     <CountryCardsContainer>
-      {countriesArray.length < 1 && <p>loading...</p>}
+      {countriesArray.length < 1 && <p>Loading...</p>}
       {!!countriesArray &&
         countriesArray.length > 0 &&
-        countriesArray.map(
-          ({ alpha2Code, name, population, region, capital, flag }) => {
+        countriesArray
+          .filter((val) => searchTermFilter(val))
+          .filter((val) => regionFilter(val))
+          .map(({ alpha2Code, name, population, region, capital, flag }) => {
             return (
               <CountryCard key={alpha2Code}>
                 <FlagContainer>
@@ -115,8 +117,7 @@ function Countries({ countriesArray }) {
                 </InfoContainer>
               </CountryCard>
             );
-          }
-        )}
+          })}
     </CountryCardsContainer>
   );
 }

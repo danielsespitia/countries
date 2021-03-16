@@ -26,18 +26,20 @@ export const SelectRegion = styled.select`
   }
 `;
 
-function DropdownFilter() {
+function DropdownFilter({ handleChange, regionSelect }) {
   return (
     <SelectContainer>
-      <SelectRegion name="region-filter">
-        <option value="" disabled selected>
-          Filter by Region
-        </option>
+      <SelectRegion
+        name="regionSelect"
+        onChange={handleChange}
+        value={regionSelect}
+      >
+        <option value="All">Select by Region</option>
         <option value="Africa">Africa</option>
-        <option value="America">America</option>
+        <option value="Americas">Americas</option>
         <option value="Asia">Asia</option>
         <option value="Europe">Europe</option>
-        <option value="Europe">Oceania</option>
+        <option value="Oceania">Oceania</option>
       </SelectRegion>
     </SelectContainer>
   );

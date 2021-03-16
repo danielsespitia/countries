@@ -11,7 +11,6 @@ import styled from 'styled-components';
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1440px;
   min-height: 100vh;
   width: 100vw;
   background-color: #202d36;
@@ -33,6 +32,7 @@ export const SearchFilterContainer = styled.div`
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [regionSelect, setRegionSelect] = useState('All');
   const [countriesArray, setCountriesArray] = useState([]);
 
   useEffect(() => {
@@ -43,10 +43,7 @@ function Home() {
           url: 'https://restcountries.eu/rest/v2/all',
         });
         setCountriesArray(data);
-        console.log(countriesArray);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     }
     load();
   }, []);
@@ -57,10 +54,29 @@ function Home() {
     switch (name) {
       case 'searchTerm':
         setSearchTerm(value);
-        console.log('esto es searchTerm', searchTerm);
+        break;
+      case 'regionSelect':
+        setRegionSelect(value);
         break;
       default:
         break;
+    }
+  };
+
+  const searchTermFilter = (val) => {
+    if (searchTerm === '') {
+      return val;
+    } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return val;
+    }
+  };
+
+  const regionFilter = (val) => {
+    if (regionSelect === 'All') {
+      return val;
+    }
+    if (regionSelect === val.region) {
+      return val;
     }
   };
 
@@ -70,9 +86,16 @@ function Home() {
       <Main>
         <SearchFilterContainer>
           <SearchBar searchTerm={searchTerm} handleChange={handleChange} />
-          <DropdownFilter />
+          <DropdownFilter
+            regionSelect={regionSelect}
+            handleChange={handleChange}
+          />
         </SearchFilterContainer>
-        <Countries countriesArray={countriesArray} />
+        <Countries
+          countriesArray={countriesArray}
+          searchTermFilter={searchTermFilter}
+          regionFilter={regionFilter}
+        />
       </Main>
     </PageContainer>
   );
