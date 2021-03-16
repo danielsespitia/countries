@@ -60,7 +60,6 @@ export const CardTitleContainer = styled.div`
 
 export const LimitSpan = styled.span`
   display: inherit;
-  background-color: lightgreen;
   max-width: 23ch;
   width: 100%;
 `;
@@ -89,33 +88,35 @@ function Countries({ countriesArray }) {
       {countriesArray.length < 1 && <p>loading...</p>}
       {!!countriesArray &&
         countriesArray.length > 0 &&
-        countriesArray.map(({ name, population, region, capital, flag }) => {
-          return (
-            <CountryCard>
-              <FlagContainer>
-                <Flag src={flag} alt="flag" />
-              </FlagContainer>
-              <InfoContainer>
-                <CardTitleContainer>
-                  <LimitSpan>
-                    <CardTitle>{name}</CardTitle>
-                  </LimitSpan>
-                </CardTitleContainer>
-                <DataContainer>
-                  <DataText>
-                    <strong>Population:</strong> {population}
-                  </DataText>
-                  <DataText>
-                    <strong>Region:</strong> {region}
-                  </DataText>
-                  <DataText>
-                    <strong>Capital:</strong> {capital}
-                  </DataText>
-                </DataContainer>
-              </InfoContainer>
-            </CountryCard>
-          );
-        })}
+        countriesArray.map(
+          ({ alpha2Code, name, population, region, capital, flag }) => {
+            return (
+              <CountryCard key={alpha2Code}>
+                <FlagContainer>
+                  <Flag src={flag} alt="flag" />
+                </FlagContainer>
+                <InfoContainer>
+                  <CardTitleContainer>
+                    <LimitSpan>
+                      <CardTitle>{name}</CardTitle>
+                    </LimitSpan>
+                  </CardTitleContainer>
+                  <DataContainer>
+                    <DataText>
+                      <strong>Population:</strong> {population}
+                    </DataText>
+                    <DataText>
+                      <strong>Region:</strong> {region}
+                    </DataText>
+                    <DataText>
+                      <strong>Capital:</strong> {capital}
+                    </DataText>
+                  </DataContainer>
+                </InfoContainer>
+              </CountryCard>
+            );
+          }
+        )}
     </CountryCardsContainer>
   );
 }

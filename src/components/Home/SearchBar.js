@@ -31,10 +31,15 @@ export const SearchBarInput = styled.input`
   }
 `;
 
-function SearchBar() {
+function SearchBar({ handleChange }) {
   return (
     <SearchContainer>
-      <SearchBarInput type="input" placeholder="Search for a country..." />
+      <SearchBarInput
+        name="searchTerm"
+        type="input"
+        placeholder="Search for a country..."
+        onChange={handleChange}
+      />
     </SearchContainer>
   );
 }

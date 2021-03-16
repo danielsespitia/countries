@@ -32,6 +32,7 @@ export const SearchFilterContainer = styled.div`
 `;
 
 function Home() {
+  const [searchTerm, setSearchTerm] = useState('');
   const [countriesArray, setCountriesArray] = useState([]);
 
   useEffect(() => {
@@ -50,12 +51,25 @@ function Home() {
     load();
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    switch (name) {
+      case 'searchTerm':
+        setSearchTerm(value);
+        console.log('esto es searchTerm', searchTerm);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <PageContainer>
       <Header />
       <Main>
         <SearchFilterContainer>
-          <SearchBar />
+          <SearchBar searchTerm={searchTerm} handleChange={handleChange} />
           <DropdownFilter />
         </SearchFilterContainer>
         <Countries countriesArray={countriesArray} />
