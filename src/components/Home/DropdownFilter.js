@@ -4,7 +4,6 @@ export const SelectContainer = styled.div`
   display: inherit;
   flex-direction: row-reverse;
   align-items: center;
-  margin-right: 81px;
   width: 10.4vw;
   height: 53px;
 `;
