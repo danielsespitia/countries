@@ -19,9 +19,8 @@ export const CountryCard = styled.div`
   height: 336px;
   width: 263px;
   margin-bottom: 72px;
-  background-color: #2b3743;
   border-radius: 8px;
-  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.08);
 `;
 
 export const FlagContainer = styled.div`
@@ -93,7 +92,7 @@ function Countries({ countriesArray, searchTermFilter, regionFilter }) {
           .filter((val) => regionFilter(val))
           .map(({ alpha2Code, name, population, region, capital, flag }) => {
             return (
-              <CountryCard key={alpha2Code}>
+              <CountryCard key={alpha2Code} className="card">
                 <FlagContainer>
                   <Flag src={flag} alt="flag" />
                 </FlagContainer>

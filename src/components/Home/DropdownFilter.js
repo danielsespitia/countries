@@ -12,12 +12,10 @@ export const SelectRegion = styled.select`
   height: 100%;
   width: 100%;
   padding-left: 10%;
-  background-color: #2b3743;
   background-repeat: no-repeat;
   background-size: 23px 23px;
   background-position: 28px 16px;
   font-size: 0.84em;
-  color: white;
   border: none;
   border-radius: 6px;
   /* box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.02); */

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Header from '../parts/Header';
 import SearchBar from '../components/Home/SearchBar';
 import DropdownFilter from '../components/Home/DropdownFilter';
 import Countries from '../components/Home/Countries';
@@ -13,7 +12,6 @@ export const PageContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   width: 100vw;
-  background-color: #202d36;
 `;
 
 export const Main = styled.main`
@@ -82,7 +80,6 @@ function Home() {
 
   return (
     <PageContainer>
-      <Header />
       <Main>
         <SearchFilterContainer>
           <SearchBar searchTerm={searchTerm} handleChange={handleChange} />

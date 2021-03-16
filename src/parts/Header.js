@@ -9,7 +9,6 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   height: 80px;
   width: 100%;
-  background-color: #2b3743;
 `;
 
 export const HeaderTitleContainer = styled.div`
@@ -25,9 +24,11 @@ export const HeaderTitle = styled(H1)`
   transform: scaleY(0.95);
 `;
 
-export const DarkModeContainer = styled.div`
+export const DarkModeButton = styled.button`
   display: inherit;
   align-items: center;
+  background: none;
+  border: none;
   margin-top: -3px;
   margin-right: 81px;
 `;
@@ -37,16 +38,16 @@ export const DarkModeText = styled(P)`
   font-weight: 500;
 `;
 
-function Header() {
+function Header({ themeToggler }) {
   return (
     <HeaderContainer className="header">
       <HeaderTitleContainer>
         <HeaderTitle>Where in the world?</HeaderTitle>
       </HeaderTitleContainer>
-      <DarkModeContainer>
-        <IoMoonSharp color={'white'} />
+      <DarkModeButton onClick={themeToggler}>
+        <IoMoonSharp className="icon" />
         <DarkModeText>Dark Mode</DarkModeText>
-      </DarkModeContainer>
+      </DarkModeButton>
     </HeaderContainer>
   );
 }
