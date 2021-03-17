@@ -106,7 +106,8 @@ export const ArrayRenderText = styled(P)`
 
 export const BordersContainer = styled.div`
   display: inherit;
-  align-items: center;
+  width: 90%;
+  align-items: flex-start;
   justify-content: flex-start;
 `;
 
@@ -116,13 +117,16 @@ export const BorderText = styled(P)`
 
 export const BorderButtonContainer = styled.div`
   display: inherit;
-  height: 27px;
+  flex-flow: wrap row;
+  align-content: space-between;
+  height: 70px;
+  color: blue;
   margin-left: 15px;
 `;
 
 export const BorderButton = styled.button`
   border: none;
-  height: 100%;
+  height: 27px;
   margin-right: 10px;
   width: 97px;
   border-radius: 3px;

@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
       background-color: ${(props) => props.theme.body};
       color: ${(props) => props.theme.fontColor};
 
-    select, input, textarea, button, header {
+    select, input, textarea, button, header, option {
       background-color: ${(props) => props.theme.auxColor};
       color: ${(props) => props.theme.fontColor}};
     }

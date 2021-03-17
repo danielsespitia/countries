@@ -67,6 +67,9 @@ function Home() {
     }
   };
 
+  const truncate = (input) =>
+    input.length > 20 ? `${input.substring(0, 20)}...` : input;
+
   return (
     <PageContainer>
       <Main>
@@ -82,6 +85,7 @@ function Home() {
           searchTermFilter={searchTermFilter}
           regionFilter={regionFilter}
           handleClick={handleClick}
+          truncate={truncate}
         />
       </Main>
     </PageContainer>

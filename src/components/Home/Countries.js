@@ -13,16 +13,43 @@ import {
   DataContainer,
   DataText,
 } from '../../assets/styles/pages/HomeStyles';
+import styled from 'styled-components';
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  margin-top: 250px;
+  width: 1760px;
+  justify-content: center;
+`;
+
+const LoadingText = styled.h1`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-self: center;
+`;
+
+const LoadingGif = styled.img`
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+`;
 
 function Countries({
   countriesArray,
   searchTermFilter,
   regionFilter,
   handleClick,
+  truncate,
 }) {
   return (
     <CountryCardsContainer>
-      {countriesArray.length < 1 && <p>Loading...</p>}
+      {countriesArray.length < 1 && (
+        <LoadingContainer>
+          <LoadingGif src="https://www.bluechipexterminating.com/wp-content/uploads/2020/02/loading-gif-png-5.gif" />
+          <LoadingText>Loading...</LoadingText>
+        </LoadingContainer>
+      )}
       {!!countriesArray &&
         countriesArray.length > 0 &&
         countriesArray
@@ -43,7 +70,7 @@ function Countries({
                   <InfoContainer>
                     <CardTitleContainer>
                       <LimitSpan>
-                        <CardTitle>{name}</CardTitle>
+                        <CardTitle>{truncate(name)}</CardTitle>
                       </LimitSpan>
                     </CardTitleContainer>
                     <DataContainer>

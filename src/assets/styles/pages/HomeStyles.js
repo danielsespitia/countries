@@ -66,7 +66,6 @@ export const CountryCardsContainer = styled.div`
   grid-template-columns: 27.1% 27.1% 27.1% 27.1%;
   margin-top: 49px;
   margin-left: 80px;
-  
 `;
 
 export const CountryCard = styled.div`
@@ -115,9 +114,8 @@ export const InfoContainer = styled.div`
 export const CardTitleContainer = styled.div`
   display: inherit;
   align-items: flex-start;
-  width: 80%;
+  width: 100%;
   text-align: left;
-  background-color: pink;
 `;
 
 export const LimitSpan = styled.span`
