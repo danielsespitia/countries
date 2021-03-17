@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import auth from '../auth';
@@ -25,16 +25,15 @@ import {
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 function Detail() {
-  useLocation();
+  const { name } = useParams();
   const [state, setState] = useState([]);
 
   useEffect(() => {
     async function load() {
       try {
-        const currentCountry = auth.currentCountry;
         const { data } = await axios({
           method: 'GET',
-          url: `https://restcountries.eu/rest/v2/name/${currentCountry}?fullText=true`,
+          url: `https://restcountries.eu/rest/v2/name/${name}?fullText=true`,
         });
         setState(data[0]);
       } catch (error) {}
@@ -55,7 +54,7 @@ function Detail() {
   };
 
   const {
-    name,
+    countryName,
     nativeName,
     population,
     region,
@@ -88,7 +87,7 @@ function Detail() {
             <>
               <CountryFlag flag={flag} />
               <CountryData
-                name={name}
+                name={countryName}
                 nativeName={nativeName}
                 population={population}
                 region={region}

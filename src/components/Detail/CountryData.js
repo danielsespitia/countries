@@ -40,7 +40,7 @@ function CountryData({
             <strong>Native Name:</strong> {nativeName}
           </InfoText>
           <InfoText>
-            <strong>Population:</strong> {numberWithCommas(population)}
+            <strong>Population:</strong> {population}
           </InfoText>
           <InfoText>
             <strong>Region:</strong> {region}

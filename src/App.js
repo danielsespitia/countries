@@ -25,7 +25,7 @@ function App() {
           <Header themeToggler={themeToggler} />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Detail exact path="/detail/:name" component={Detail} />
+            <Route exact path="/detail/:name" component={Detail} />
           </Switch>
         </Router>
       </StyledApp>

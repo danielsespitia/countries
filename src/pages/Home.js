@@ -46,8 +46,7 @@ function Home() {
   };
 
   const handleClick = (name) => {
-    auth.currentCountry = name;
-    history.push(`/detail/${auth.currentCountry}`);
+    history.push(`/detail/${name}`);
   };
 
   const searchTermFilter = (val) => {
