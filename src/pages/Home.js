@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-import auth from '../auth';
-
 import SearchBar from '../components/Home/SearchBar';
 import DropdownFilter from '../components/Home/DropdownFilter';
 import Countries from '../components/Home/Countries';
