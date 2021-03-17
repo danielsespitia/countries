@@ -29,6 +29,7 @@ function CountryData({
   languages,
   handleClick,
 }) {
+  console.log('hola')
   return (
     <DetailsContainer>
       <TitleContainer>
