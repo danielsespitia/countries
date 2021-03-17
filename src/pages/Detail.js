@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import auth from '../auth';
@@ -6,7 +7,14 @@ import auth from '../auth';
 import CountryFlag from '../components/Detail/CountryFlag';
 import CountryData from '../components/Detail/CountryData';
 
-import { PageContainer, Main } from '../assets/styles/GlobalStyles';
+import loading from '../assets/images/loading.gif';
+import {
+  PageContainer,
+  Main,
+  LoadingContainer,
+  LoadingGif,
+  LoadingText,
+} from '../assets/styles/GlobalStyles';
 import {
   BackButton,
   BackButtonContainer,
@@ -17,14 +25,16 @@ import {
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 function Detail() {
+  useLocation();
   const [state, setState] = useState([]);
 
   useEffect(() => {
     async function load() {
       try {
+        const currentCountry = auth.currentCountry;
         const { data } = await axios({
           method: 'GET',
-          url: `https://restcountries.eu/rest/v2/name/${auth.currentCountry}?fullText=true`,
+          url: `https://restcountries.eu/rest/v2/name/${currentCountry}?fullText=true`,
         });
         setState(data[0]);
       } catch (error) {}
@@ -68,20 +78,30 @@ function Detail() {
           </BackButton>
         </BackButtonContainer>
         <CountryDetailContainer>
-          <CountryFlag flag={flag} />
-          <CountryData
-            name={name}
-            nativeName={nativeName}
-            population={population}
-            region={region}
-            subregion={subregion}
-            capital={capital}
-            topLevelDomain={topLevelDomain}
-            borders={borders}
-            currencies={currencies}
-            languages={languages}
-            handleClick={handleClick}
-          />
+          {!name && (
+            <LoadingContainer>
+              <LoadingGif src={loading} />
+              <LoadingText>Loading...</LoadingText>
+            </LoadingContainer>
+          )}
+          {!!name && (
+            <>
+              <CountryFlag flag={flag} />
+              <CountryData
+                name={name}
+                nativeName={nativeName}
+                population={population}
+                region={region}
+                subregion={subregion}
+                capital={capital}
+                topLevelDomain={topLevelDomain}
+                borders={borders}
+                currencies={currencies}
+                languages={languages}
+                handleClick={handleClick}
+              />
+            </>
+          )}
         </CountryDetailContainer>
       </Main>
     </PageContainer>

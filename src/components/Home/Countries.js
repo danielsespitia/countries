@@ -1,9 +1,8 @@
 import numberWithCommas from '../../utils/numberWithCommas';
 
+import loading from '../../assets/images/loading.gif';
+
 import {
-  LoadingContainer,
-  LoadingText,
-  LoadingGif,
   CountryCardsContainer,
   CountryCard,
   FlagContainer,
@@ -17,6 +16,12 @@ import {
   DataText,
 } from '../../assets/styles/pages/HomeStyles';
 
+import {
+  LoadingContainer,
+  LoadingText,
+  LoadingGif,
+} from '../../assets/styles/GlobalStyles';
+
 function Countries({
   countriesArray,
   searchTermFilter,
@@ -28,7 +33,7 @@ function Countries({
     <CountryCardsContainer>
       {countriesArray.length < 1 && (
         <LoadingContainer>
-          <LoadingGif src="https://www.bluechipexterminating.com/wp-content/uploads/2020/02/loading-gif-png-5.gif" />
+          <LoadingGif src={loading} />
           <LoadingText>Loading...</LoadingText>
         </LoadingContainer>
       )}

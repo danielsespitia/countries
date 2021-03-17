@@ -81,6 +81,7 @@ export const LeftInfoContainer = styled.div`
   width: 50%;
   flex-direction: column;
 `;
+
 export const RightInfoContainer = styled.div`
   display: inherit;
   width: 50%;
@@ -94,12 +95,10 @@ export const InfoText = styled(P)`
 `;
 
 export const ArrayRenderContainer = styled.div`
-  display: inline-block;
-  flex-direction: row;
+  display: flex;
 `;
 
 export const ArrayRenderText = styled(P)`
-  width: 100%;
   font-size: 0.97em;
   font-weight: 300;
 `;

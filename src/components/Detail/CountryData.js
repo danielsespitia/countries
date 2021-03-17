@@ -1,6 +1,4 @@
 import numberWithCommas from '../../utils/numberWithCommas';
-import axios from 'axios';
-import auth from '../../auth';
 
 import {
   CountryName,
@@ -31,7 +29,7 @@ function CountryData({
   languages,
   handleClick,
 }) {
-  
+  console.log(population);
   return (
     <DetailsContainer>
       <TitleContainer>
@@ -61,35 +59,35 @@ function CountryData({
           </InfoText>
           <ArrayRenderContainer>
             <InfoText>
-              <strong>Currencies:</strong>
-              {!!currencies &&
-                currencies.length > 0 &&
-                currencies.length < 2 &&
-                currencies.map((e) => {
-                  return <ArrayRenderText>{e.name}</ArrayRenderText>;
-                })}
-              {!!currencies &&
-                currencies.length > 1 &&
-                currencies.map((e) => {
-                  return <ArrayRenderText>{e.name} ,</ArrayRenderText>;
-                })}
+              <strong>Currencies:&nbsp;</strong>
             </InfoText>
+            {!!currencies &&
+              currencies.length > 0 &&
+              currencies.length < 2 &&
+              currencies.map((e) => {
+                return <ArrayRenderText> {e.name}</ArrayRenderText>;
+              })}
+            {!!currencies &&
+              currencies.length > 1 &&
+              currencies.map((e) => {
+                return <ArrayRenderText> {e.name},</ArrayRenderText>;
+              })}
           </ArrayRenderContainer>
           <ArrayRenderContainer>
             <InfoText>
-              <strong>Languages: </strong>
-              {!!languages &&
-                languages.length > 0 &&
-                languages.length < 2 &&
-                languages.map((e) => {
-                  return <ArrayRenderText>{e.name} </ArrayRenderText>;
-                })}
-              {!!languages &&
-                languages.length > 1 &&
-                languages.map((e) => {
-                  return <ArrayRenderText>{e.name},</ArrayRenderText>;
-                })}
+              <strong>Languages:&nbsp;</strong>
             </InfoText>
+            {!!languages &&
+              languages.length > 0 &&
+              languages.length < 2 &&
+              languages.map((e) => {
+                return <ArrayRenderText>{e.name}</ArrayRenderText>;
+              })}
+            {!!languages &&
+              languages.length > 1 &&
+              languages.map((e) => {
+                return <ArrayRenderText>{e.name},&nbsp;</ArrayRenderText>;
+              })}
           </ArrayRenderContainer>
         </RightInfoContainer>
       </DetailInfoContainer>
