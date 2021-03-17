@@ -5,34 +5,13 @@ import SearchBar from '../components/Home/SearchBar';
 import DropdownFilter from '../components/Home/DropdownFilter';
 import Countries from '../components/Home/Countries';
 
-import styled from 'styled-components';
-
-export const PageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100vw;
-`;
-
-export const Main = styled.main`
-  display: inherit;
-  width: 100%;
-  flex-direction: column;
-`;
-
-export const SearchFilterContainer = styled.div`
-  display: inherit;
-  justify-content: space-between;
-  margin-top: 50px;
-  margin-left: 80px;
-  margin-right: 81px;
-`;
+import { PageContainer, Main } from '../assets/styles/GlobalStyles';
+import { SearchFilterContainer } from '../assets/styles/pages/HomeStyles';
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [regionSelect, setRegionSelect] = useState('All');
   const [countriesArray, setCountriesArray] = useState([]);
-  const [countryName, setCountryName] = useState("");
 
   useEffect(() => {
     async function load() {
@@ -78,10 +57,6 @@ function Home() {
       return val;
     }
   };
-
-  const handleClick = () => {
-
-  }
 
   return (
     <PageContainer>

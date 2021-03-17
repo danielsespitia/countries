@@ -20,20 +20,29 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <div
-        className="App"
         style={{
           display: 'flex',
-          justifyContent: 'center',
+          alignItems: 'center',
           flexDirection: 'column',
         }}
       >
-        <Router>
-          <Header themeToggler={themeToggler} />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Detail exact path="/detail" component={Detail} />
-          </Switch>
-        </Router>
+        <div
+          className="App"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            border: '1px solid black',
+            width: '1440px',
+          }}
+        >
+          <Router>
+            <Header themeToggler={themeToggler} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Detail exact path="/detail" component={Detail} />
+            </Switch>
+          </Router>
+        </div>
       </div>
     </ThemeProvider>
   );

@@ -19,3 +19,15 @@ export const P = styled.p`
   margin: 0;
   padding: 0;
 `;
+
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+export const Main = styled.main`
+  display: inherit;
+  width: 100%;
+  flex-direction: column;
+`;
