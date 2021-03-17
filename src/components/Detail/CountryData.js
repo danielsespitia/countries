@@ -22,7 +22,10 @@ function CountryData({
   subregion,
   capital,
   topLevelDomain,
+  borders,
+  currencies,
 }) {
+  console.log(currencies);
   return (
     <DetailsContainer>
       <TitleContainer>
@@ -52,6 +55,11 @@ function CountryData({
           </InfoText>
           <InfoText>
             <strong>Currencies:</strong>
+            {!!currencies &&
+              currencies.length > 0 &&
+              currencies.map((e) => {
+                return <p>{e.name}</p>;
+              })}
           </InfoText>
           <InfoText>
             <strong>Languages: </strong>
@@ -59,9 +67,13 @@ function CountryData({
         </RightInfoContainer>
       </DetailInfoContainer>
       <BordersContainer>
-        <BorderText>Border Countries: </BorderText>
+        <BorderText>Border Countries:</BorderText>
         <BorderButtonContainer>
-          <BorderButton></BorderButton>
+          {!!borders &&
+            borders.length > 0 &&
+            borders.map((borders) => {
+              return <BorderButton>{borders}</BorderButton>;
+            })}
         </BorderButtonContainer>
       </BordersContainer>
     </DetailsContainer>

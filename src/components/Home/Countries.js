@@ -21,8 +21,7 @@ function Countries({ countriesArray, searchTermFilter, regionFilter }) {
   const handleClick = (name) => {
     setCurrentCountry(name);
   };
-
-  console.log(currentCountry);
+  
   return (
     <CountryCardsContainer>
       {countriesArray.length < 1 && <p>Loading...</p>}

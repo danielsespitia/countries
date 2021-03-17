@@ -30,10 +30,6 @@ function Detail() {
     load();
   }, []);
 
-  // for (let i = 0; i < state.languages.length; i++) {
-
-  // }
-
   const {
     name,
     nativeName,
@@ -43,6 +39,8 @@ function Detail() {
     capital,
     topLevelDomain,
     flag,
+    borders,
+    currencies,
   } = state;
 
   return (
@@ -64,6 +62,8 @@ function Detail() {
             subregion={subregion}
             capital={capital}
             topLevelDomain={topLevelDomain}
+            borders={borders}
+            currencies={currencies}
           />
         </CountryDetailContainer>
       </Main>
