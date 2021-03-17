@@ -26,7 +26,7 @@ import { IoIosArrowRoundBack } from 'react-icons/io';
 
 function Detail() {
   const { name } = useParams();
-  const [state, setState] = useState([]);
+  const [state, setState] = useState({});
 
   useEffect(() => {
     async function load() {
@@ -39,7 +39,7 @@ function Detail() {
       } catch (error) {}
     }
     load();
-  }, []);
+  }, [name]);
 
   const handleClick = async (borders) => {
     const code = borders;
@@ -54,7 +54,6 @@ function Detail() {
   };
 
   const {
-    countryName,
     nativeName,
     population,
     region,
@@ -87,7 +86,7 @@ function Detail() {
             <>
               <CountryFlag flag={flag} />
               <CountryData
-                name={countryName}
+                name={name}
                 nativeName={nativeName}
                 population={population}
                 region={region}
