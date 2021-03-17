@@ -64,12 +64,12 @@ function CountryData({
               currencies.length > 0 &&
               currencies.length < 2 &&
               currencies.map((e) => {
-                return <ArrayRenderText> {e.name}</ArrayRenderText>;
+                return <ArrayRenderText key={name}> {e.name}</ArrayRenderText>;
               })}
             {!!currencies &&
               currencies.length > 1 &&
               currencies.map((e) => {
-                return <ArrayRenderText> {e.name},</ArrayRenderText>;
+                return <ArrayRenderText key={name}> {e.name},</ArrayRenderText>;
               })}
           </ArrayRenderContainer>
           <ArrayRenderContainer>
@@ -80,12 +80,14 @@ function CountryData({
               languages.length > 0 &&
               languages.length < 2 &&
               languages.map((e) => {
-                return <ArrayRenderText>{e.name}</ArrayRenderText>;
+                return <ArrayRenderText key={name}>{e.name}</ArrayRenderText>;
               })}
             {!!languages &&
               languages.length > 1 &&
               languages.map((e) => {
-                return <ArrayRenderText>{e.name},&nbsp;</ArrayRenderText>;
+                return (
+                  <ArrayRenderText key={name}>{e.name},&nbsp;</ArrayRenderText>
+                );
               })}
           </ArrayRenderContainer>
         </RightInfoContainer>
@@ -97,7 +99,10 @@ function CountryData({
             borders.length > 0 &&
             borders.map((borders) => {
               return (
-                <BorderButton onClick={() => handleClick(borders)}>
+                <BorderButton
+                  key={borders}
+                  onClick={() => handleClick(borders)}
+                >
                   {borders}
                 </BorderButton>
               );

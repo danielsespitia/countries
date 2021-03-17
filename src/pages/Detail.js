@@ -78,13 +78,13 @@ function Detail() {
           </BackButton>
         </BackButtonContainer>
         <CountryDetailContainer>
-          {!name && (
+          {!flag && (
             <LoadingContainer>
               <LoadingGif src={loading} />
               <LoadingText>Loading...</LoadingText>
             </LoadingContainer>
           )}
-          {!!name && (
+          {!!flag && (
             <>
               <CountryFlag flag={flag} />
               <CountryData
