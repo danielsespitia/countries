@@ -29,7 +29,6 @@ function CountryData({
   languages,
   handleClick,
 }) {
-  console.log(population);
   return (
     <DetailsContainer>
       <TitleContainer>
@@ -41,7 +40,7 @@ function CountryData({
             <strong>Native Name:</strong> {nativeName}
           </InfoText>
           <InfoText>
-            <strong>Population:</strong> {population}
+            <strong>Population:</strong> {numberWithCommas(population)}
           </InfoText>
           <InfoText>
             <strong>Region:</strong> {region}
