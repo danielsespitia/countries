@@ -6,7 +6,7 @@ import {
 function SearchBar({ handleChange }) {
   return (
     <SearchContainer className="search-bar">
-      <SearchBarInput
+      <SearchBarInput className="search-input"
         id="searchTerm"
         name="searchTerm"
         type="input"

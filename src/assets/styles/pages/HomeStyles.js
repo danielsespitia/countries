@@ -1,7 +1,25 @@
-import searchIcon from '../../images/search-icon.webp';
-
 import styled from 'styled-components';
 import { H2, P } from '../GlobalStyles';
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  margin-top: 250px;
+  width: 1760px;
+  justify-content: center;
+`;
+
+export const LoadingText = styled.h1`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-self: center;
+`;
+
+export const LoadingGif = styled.img`
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+`;
 
 export const SearchFilterContainer = styled.div`
   display: inherit;
@@ -24,10 +42,6 @@ export const SearchContainer = styled.div`
 export const SearchBarInput = styled.input`
   height: 100%;
   width: 100%;
-  background: url(${searchIcon});
-  background-repeat: no-repeat;
-  background-size: 23px 23px;
-  background-position: 28px 16px;
   padding-left: 74px;
   font-size: 0.89em;
   border: none;
