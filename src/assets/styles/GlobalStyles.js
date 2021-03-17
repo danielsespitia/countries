@@ -23,7 +23,6 @@ export const P = styled.p`
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 `;
 
 export const Main = styled.main`

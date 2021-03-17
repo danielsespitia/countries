@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import searchIcon from '../../images/search-icon.webp';
 
 import styled from 'styled-components';
@@ -64,18 +62,15 @@ export const SelectRegion = styled.select`
 `;
 
 export const CountryCardsContainer = styled.div`
-  display: flex;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  flex-flow: row wrap;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 27.1% 27.1% 27.1% 27.1%;
   margin-top: 49px;
   margin-left: 80px;
-  margin-right: 81px;
+  
 `;
 
 export const CountryCard = styled.div`
-  display: inherit;
+  display: flex;
   flex-direction: column;
   height: 336px;
   width: 263px;
@@ -85,7 +80,7 @@ export const CountryCard = styled.div`
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.08);
 `;
 
-export const FlagContainer = styled(Link)`
+export const FlagContainer = styled.div`
   display: inherit;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;

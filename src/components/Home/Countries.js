@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import numberWithCommas from '../../utils/numberWithCommas';
 
 import {
@@ -16,12 +14,12 @@ import {
   DataText,
 } from '../../assets/styles/pages/HomeStyles';
 
-function Countries({ countriesArray, searchTermFilter, regionFilter }) {
-  const [currentCountry, setCurrentCountry] = useState('');
-  const handleClick = (name) => {
-    setCurrentCountry(name);
-  };
-  
+function Countries({
+  countriesArray,
+  searchTermFilter,
+  regionFilter,
+  handleClick,
+}) {
   return (
     <CountryCardsContainer>
       {countriesArray.length < 1 && <p>Loading...</p>}
@@ -33,13 +31,13 @@ function Countries({ countriesArray, searchTermFilter, regionFilter }) {
           .map(({ alpha2Code, name, population, region, capital, flag }) => {
             return (
               <CountryCard key={alpha2Code} className="card">
-                <FlagContainer
-                  to="/detail"
-                  onClick={() => {
-                    setCurrentCountry(name);
-                  }}
-                >
-                  <Flag className="flag" src={flag} alt="Country Flag" />
+                <FlagContainer>
+                  <Flag
+                    className="flag"
+                    src={flag}
+                    alt="Country Flag"
+                    onClick={() => handleClick(name)}
+                  />
                 </FlagContainer>
                 <BottomCardContainer>
                   <InfoContainer>

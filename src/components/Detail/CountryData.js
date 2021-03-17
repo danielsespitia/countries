@@ -1,4 +1,6 @@
 import numberWithCommas from '../../utils/numberWithCommas';
+import axios from 'axios';
+import auth from '../../auth';
 
 import {
   CountryName,
@@ -8,6 +10,8 @@ import {
   LeftInfoContainer,
   RightInfoContainer,
   TitleContainer,
+  ArrayRenderContainer,
+  ArrayRenderText,
   BordersContainer,
   BorderText,
   BorderButtonContainer,
@@ -24,8 +28,10 @@ function CountryData({
   topLevelDomain,
   borders,
   currencies,
+  languages,
+  handleClick,
 }) {
-  console.log(currencies);
+  
   return (
     <DetailsContainer>
       <TitleContainer>
@@ -53,17 +59,38 @@ function CountryData({
           <InfoText>
             <strong>Top Level Domain:</strong> {topLevelDomain}
           </InfoText>
-          <InfoText>
-            <strong>Currencies:</strong>
-            {!!currencies &&
-              currencies.length > 0 &&
-              currencies.map((e) => {
-                return <p>{e.name}</p>;
-              })}
-          </InfoText>
-          <InfoText>
-            <strong>Languages: </strong>
-          </InfoText>
+          <ArrayRenderContainer>
+            <InfoText>
+              <strong>Currencies:</strong>
+              {!!currencies &&
+                currencies.length > 0 &&
+                currencies.length < 2 &&
+                currencies.map((e) => {
+                  return <ArrayRenderText>{e.name}</ArrayRenderText>;
+                })}
+              {!!currencies &&
+                currencies.length > 1 &&
+                currencies.map((e) => {
+                  return <ArrayRenderText>{e.name} ,</ArrayRenderText>;
+                })}
+            </InfoText>
+          </ArrayRenderContainer>
+          <ArrayRenderContainer>
+            <InfoText>
+              <strong>Languages: </strong>
+              {!!languages &&
+                languages.length > 0 &&
+                languages.length < 2 &&
+                languages.map((e) => {
+                  return <ArrayRenderText>{e.name} </ArrayRenderText>;
+                })}
+              {!!languages &&
+                languages.length > 1 &&
+                languages.map((e) => {
+                  return <ArrayRenderText>{e.name},</ArrayRenderText>;
+                })}
+            </InfoText>
+          </ArrayRenderContainer>
         </RightInfoContainer>
       </DetailInfoContainer>
       <BordersContainer>
@@ -72,7 +99,11 @@ function CountryData({
           {!!borders &&
             borders.length > 0 &&
             borders.map((borders) => {
-              return <BorderButton>{borders}</BorderButton>;
+              return (
+                <BorderButton onClick={() => handleClick(borders)}>
+                  {borders}
+                </BorderButton>
+              );
             })}
         </BorderButtonContainer>
       </BordersContainer>

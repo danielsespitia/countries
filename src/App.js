@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
 
@@ -20,29 +24,19 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <div
+        className="App"
         style={{
           display: 'flex',
-          alignItems: 'center',
           flexDirection: 'column',
         }}
       >
-        <div
-          className="App"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            border: '1px solid black',
-            width: '1440px',
-          }}
-        >
-          <Router>
-            <Header themeToggler={themeToggler} />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Detail exact path="/detail" component={Detail} />
-            </Switch>
-          </Router>
-        </div>
+        <Router>
+          <Header themeToggler={themeToggler} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Detail exact path="/detail" component={Detail} />
+          </Switch>
+        </Router>
       </div>
     </ThemeProvider>
   );

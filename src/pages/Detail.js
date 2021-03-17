@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import auth from '../auth';
+
 import CountryFlag from '../components/Detail/CountryFlag';
 import CountryData from '../components/Detail/CountryData';
 
@@ -22,13 +24,25 @@ function Detail() {
       try {
         const { data } = await axios({
           method: 'GET',
-          url: 'https://restcountries.eu/rest/v2/name/belgium?fullText=true',
+          url: `https://restcountries.eu/rest/v2/name/${auth.currentCountry}?fullText=true`,
         });
         setState(data[0]);
       } catch (error) {}
     }
     load();
   }, []);
+
+  const handleClick = async (borders) => {
+    const code = borders;
+    auth.currentCountry = code;
+    try {
+      const { data } = await axios({
+        method: 'GET',
+        url: `https://restcountries.eu/rest/v2/alpha/${code}`,
+      });
+      setState(data);
+    } catch (error) {}
+  };
 
   const {
     name,
@@ -41,6 +55,7 @@ function Detail() {
     flag,
     borders,
     currencies,
+    languages,
   } = state;
 
   return (
@@ -64,6 +79,8 @@ function Detail() {
             topLevelDomain={topLevelDomain}
             borders={borders}
             currencies={currencies}
+            languages={languages}
+            handleClick={handleClick}
           />
         </CountryDetailContainer>
       </Main>

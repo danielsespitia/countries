@@ -7,7 +7,6 @@ export const BackButtonContainer = styled.div`
   display: inherit;
   align-items: center;
   height: 39px;
-  width: 100%;
   margin-top: 80px;
   margin-left: 80px;
   margin-right: 81px;
@@ -42,7 +41,7 @@ export const BigFlagContainer = styled.div`
   display: inherit;
   width: 560px;
   height: 401px;
-  margin-left: 80px;
+  margin-left: 14%;
   box-shadow: 0px 0px 8px 10px rgba(0, 0, 0, 0.2);
 `;
 
@@ -79,17 +78,29 @@ export const DetailInfoContainer = styled.div`
 
 export const LeftInfoContainer = styled.div`
   display: inherit;
+  width: 50%;
   flex-direction: column;
 `;
 export const RightInfoContainer = styled.div`
   display: inherit;
-  margin-right: 104px;
+  width: 50%;
   flex-direction: column;
 `;
 
 export const InfoText = styled(P)`
   font-size: 0.97em;
   margin-bottom: 12px;
+  font-weight: 300;
+`;
+
+export const ArrayRenderContainer = styled.div`
+  display: inline-block;
+  flex-direction: row;
+`;
+
+export const ArrayRenderText = styled(P)`
+  width: 100%;
+  font-size: 0.97em;
   font-weight: 300;
 `;
 

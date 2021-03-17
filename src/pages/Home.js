@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+
+import auth from '../auth';
 
 import SearchBar from '../components/Home/SearchBar';
 import DropdownFilter from '../components/Home/DropdownFilter';
@@ -9,6 +12,7 @@ import { PageContainer, Main } from '../assets/styles/GlobalStyles';
 import { SearchFilterContainer } from '../assets/styles/pages/HomeStyles';
 
 function Home() {
+  const history = useHistory();
   const [searchTerm, setSearchTerm] = useState('');
   const [regionSelect, setRegionSelect] = useState('All');
   const [countriesArray, setCountriesArray] = useState([]);
@@ -39,6 +43,11 @@ function Home() {
       default:
         break;
     }
+  };
+
+  const handleClick = (name) => {
+    auth.currentCountry = name;
+    history.push(`/detail`);
   };
 
   const searchTermFilter = (val) => {
@@ -72,6 +81,7 @@ function Home() {
           countriesArray={countriesArray}
           searchTermFilter={searchTermFilter}
           regionFilter={regionFilter}
+          handleClick={handleClick}
         />
       </Main>
     </PageContainer>
