@@ -1,8 +1,13 @@
-function CountryFlag() {
+import {
+  BigFlagContainer,
+  BigFlag,
+} from '../../assets/styles/pages/DetailStyles';
+
+function CountryFlag({ flag }) {
   return (
-    <div>
-      <div></div>
-    </div>
+    <BigFlagContainer>
+      <BigFlag src={flag} alt="Country Flag" />
+    </BigFlagContainer>
   );
 }
 
